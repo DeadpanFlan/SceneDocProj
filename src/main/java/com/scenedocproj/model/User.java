@@ -1,6 +1,6 @@
 package com.scenedocproj.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 
 public class User {
@@ -10,19 +10,19 @@ public class User {
 	private String middlename;
 	private String lastname;
 	private String username;
-	private String gender;
+	private Integer gender;
 	// Flag Elements
-	private boolean isActive;
-	private boolean isAdmin;
+	private boolean active;
+	private boolean admin;
 	// Date Elements
-	private Date dateCreated;
-	private Date dateUpdated;
+	private Timestamp dateCreated;
+	private Timestamp dateUpdated;
 
 	public User() {
 		
 	}
 	
-	public User(Long i, String f, String m, String l, String u, String g){
+	public User(Long i, String f, String m, String l, String u, Integer g, Boolean active, Boolean admin, Timestamp created, Timestamp updated){
 		this.setId(i);
 		this.setFirstname(f);
 		this.setMiddlename(m);
@@ -30,12 +30,11 @@ public class User {
 		this.setUsername(u);
 		this.setGender(g);
 
-		this.setActive(true);
-		this.setAdmin(false);
+		this.setActive(active);
+		this.setAdmin(admin);
 
-		Date tmp = new Date();
-		this.setDateCreated(tmp);
-		this.setDateUpdated(tmp);
+		this.setDateCreated(created);
+		this.setDateUpdated(updated);
 
 	}
 
@@ -79,43 +78,43 @@ public class User {
 		this.username = username;
 	}
 
-	public String getGender() {
+	public Integer getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setGender(Integer g) {
+		this.gender = g;
 	}
 
 	public boolean isActive() {
-		return isActive;
+		return active;
 	}
 
-	public void setActive(boolean isActive) {
-		this.isActive = isActive;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public boolean isAdmin() {
-		return isAdmin;
+		return admin;
 	}
 
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
-	public Date getDateCreated() {
+	public Timestamp getDateCreated() {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
+	public void setDateCreated(Timestamp dateCreated) {
 		this.dateCreated = dateCreated;
 	}
 
-	public Date getDateUpdated() {
+	public Timestamp getDateUpdated() {
 		return dateUpdated;
 	}
 
-	public void setDateUpdated(Date dateUpdated) {
+	public void setDateUpdated(Timestamp dateUpdated) {
 		this.dateUpdated = dateUpdated;
 	}
 	
