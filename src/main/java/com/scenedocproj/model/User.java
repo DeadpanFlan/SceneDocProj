@@ -1,29 +1,30 @@
 package com.scenedocproj.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
+import javax.persistence.*;
 
-
+@Entity
 public class User {
-	private Long id;
-	// String Elements
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
 	private String firstname;
 	private String middlename;
 	private String lastname;
 	private String username;
-	private Integer gender;
-	// Flag Elements
+	private byte gender;
 	private boolean active;
 	private boolean admin;
-	// Date Elements
-	private Timestamp dateCreated;
-	private Timestamp dateUpdated;
+	private Date created;
+	private Date updated;
 
-	public User() {
-		
+	protected User(){
+
 	}
-	
-	public User(Long i, String f, String m, String l, String u, Integer g, Boolean active, Boolean admin, Timestamp created, Timestamp updated){
-		this.setId(i);
+
+	public User(String f, String m, String l, String u, byte g, Boolean active, Boolean admin, Date created, Date updated){
 		this.setFirstname(f);
 		this.setMiddlename(m);
 		this.setLastname(l);
@@ -33,94 +34,77 @@ public class User {
 		this.setActive(active);
 		this.setAdmin(admin);
 
-		this.setDateCreated(created);
-		this.setDateUpdated(updated);
+		 this.setCreated(created);
+		 this.setUpdated(updated);
 
 	}
 
 	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+        return id;
+    }
+	
 	public String getFirstname() {
 		return firstname;
 	}
-
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-
 	public String getMiddlename() {
 		return middlename;
 	}
-
 	public void setMiddlename(String middlename) {
 		this.middlename = middlename;
 	}
-
 	public String getLastname() {
 		return lastname;
 	}
-
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public Integer getGender() {
+	public byte getGender() {
 		return gender;
 	}
-
-	public void setGender(Integer g) {
-		this.gender = g;
+	public void setGender(byte gender) {
+		this.gender = gender;
 	}
-
 	public boolean isActive() {
 		return active;
 	}
-
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
 	public boolean isAdmin() {
 		return admin;
 	}
-
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
-
-	public Timestamp getDateCreated() {
-		return dateCreated;
+	public Date getCreated() {
+		return created;
+	}
+	public void setCreated(Date created) {
+		this.created = created;
+	}
+	public Date getUpdated() {
+		return updated;
+	}
+	public void setUpdated(Date updated) {
+		this.updated = updated;
 	}
 
-	public void setDateCreated(Timestamp dateCreated) {
-		this.dateCreated = dateCreated;
+	@PreUpdate
+	@PrePersist
+	public void updateTimeStamps() {
+	    updated = new Date();
+	    if (created==null) {
+	      created = new Date();
+	    }
 	}
-
-	public Timestamp getDateUpdated() {
-		return dateUpdated;
-	}
-
-	public void setDateUpdated(Timestamp dateUpdated) {
-		this.dateUpdated = dateUpdated;
-	}
-	
-
-
-
-
 
 }
