@@ -63,6 +63,12 @@ public class UserController {
 		}
 		userRepo.save(user);
 	}
+
+	@RequestMapping(value="/users/{id}", method=RequestMethod.DELETE)
+	public void deleteUser(@PathVariable Long id) {
+		User user = userRepo.findOne(id);
+		userRepo.delete(user);
+	}
 	
 
 

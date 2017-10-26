@@ -1,3 +1,12 @@
+October 25, 2017
+================
+- Implemented the Angular portion of the application
+	- App initializes with test data being displayed
+- One particular caveat at this point is that there is no validation on a new user, meaning you can submit blank text fields
+	- Other fields have defaults (Gender=Unknown, Flags=False, Datetime=current)
+- Implemented delete function in API as it was missed before
+- Added support for running with Maven in addition to Gradle
+
 October 24, 2017 - Evening
 ==========================
 - Instead of building my own SQL queries, opted to use JPA CrudRepository 

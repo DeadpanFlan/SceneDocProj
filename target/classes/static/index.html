@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="UserTableApp">
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+	<div ng-controller="userCtrl">
+		<div class="container">
+			<div class="row">
+				<table class="table table-bordered">
+					<thead >
+						<tr class="active">
+							<th scope="col">Firstname</th>
+							<th scope="col">Middlename</th>
+							<th scope="col">Lastname</th>
+							<th scope="col">Username</th>
+							<th scope="col">Gender</th>
+							<th scope="col">Active</th>
+							<th scope="col">Admin</th>
+							<th scope="col">Date Created</th>
+							<th scope="col">Date Updated</th>
+							<th scope="col">Update</th>
+							<th scope="col">Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in users">
+							<td>{{user.firstname}}</td>
+							<td>{{user.middlename}}</td>
+							<td>{{user.lastname}}</td>
+							<td>{{user.username}}</td>
+							<td>{{gender[user.gender]}}</td>
+							<td>
+								<input type="checkbox" ng-checked="{{user.active}}" disabled>
+							</td>
+							<td>
+								<input type="checkbox" ng-checked="{{user.admin}}" disabled>
+							</td>
+							<td>{{user.created | date: 'medium'}}</td>
+							<td>{{user.updated | date: 'medium'}}</td>
+							<td>
+								<button class="btn" type="button" ng-click="open(user.id)">Update</button>
+							</td>
+							<td>
+								<button class="btn btn-danger" type="button" ng-click="del(user.id)">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<button class="btn btn-primary col-xs-12" ng-click="newUser()">New User</button>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

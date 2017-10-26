@@ -1,0 +1,40 @@
+<div class="modal-header">
+	<h3 class="modal-title">Edit User</h3>
+</div>
+<div class="modal-body">
+	<form class="row">
+		<div class="col-xs-12 form-group">
+			<label for="firstname">Firstname</label>
+			<input type="text" ng-model="user.firstname" class="form-control" id="firstname">
+		</div>
+		<div class="col-xs-12 form-group">
+			<label for="middlename">Middlename</label>
+			<input type="text" ng-model="user.middlename" class="form-control" id="middlename">
+		</div>
+		<div class="col-xs-12 form-group">
+			<label for="lastname">Lastname</label>
+			<input type="text" ng-model="user.lastname" class="form-control" id="lastname">
+		</div>
+		<div class="col-xs-12 form-group">
+			<label for="username">Username</label>
+			<input type="text" ng-model="user.username" class="form-control" id="username">
+		</div>
+		<div class="col-xs-12 form-group">
+			<label for="gender">Gender</label>
+			<select ng-model="user.gender" ng-options="option.id as option.name for option in gender" id="gender" class="form-control">
+			</select>
+		</div>
+		<div class="col-xs-6 form-group">
+			<label for="active">Active</label>
+			<input type="checkbox" ng-model="user.active">
+		</div>
+		<div class="col-xs-6 form-group">
+			<label for="admin">Admin</label>
+			<input type="checkbox" id="admin" ng-model="user.admin">
+		</div>
+	</form>
+</div>
+<div class=modal-footer>
+	<button type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
+	<button type="button" class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

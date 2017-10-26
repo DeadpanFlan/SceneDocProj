@@ -1,0 +1,4 @@
+com/scenedocproj/repository/UserRepository.class
+com/scenedocproj/model/User.class
+com/scenedocproj/ScenedocProjectApplication.class
+com/scenedocproj/controller/UserController.class
